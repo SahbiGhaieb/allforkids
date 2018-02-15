@@ -1,0 +1,46 @@
+{% extends '@AllforkidsUser/layout.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block core %}
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+    <div  >
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="panel panel-default formPanel">
+                    <div class="panel-heading bg-color-1 border-color-1">
+                        <h3 class="panel-title">Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="{{ path("fos_user_security_check") }}" method="POST" role="form">
+                            {% if csrf_token %}
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            {% endif %}
+                            <div class="form-group formField">
+                                <input type="text"  class="form-control" placeholder="User name" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+
+                            </div>
+                            <div class="form-group formField">
+                                <input  id="password" name="_password" required="required" autocomplete="current-password" type="password" class="form-control" placeholder="Password">
+
+                            </div>
+                            <div class="form-group formField">
+                                <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" id="_submit" name="_submit" value="login"{{ 'security.login.submit'|trans }}/>
+
+                            <div class="form-group formField">
+                                <p class="help-block"><a href="#">Forgot password?</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

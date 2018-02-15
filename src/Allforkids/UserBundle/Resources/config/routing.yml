@@ -1,0 +1,6 @@
+allforkids_user_homepage:
+    path:     /
+    defaults: { _controller: AllforkidsUserBundle:Default:index }
+allforkids_admin_homepage:
+    path:     /admin
+    defaults: { _controller: AllforkidsUserBundle:Default:admin }
