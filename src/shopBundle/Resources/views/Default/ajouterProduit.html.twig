@@ -1,0 +1,12 @@
+{% extends 'back.html.twig' %}
+{% block core %}
+    <table border="1">
+        {{ form_start(form) }}
+        <tr><td>Nom</td><td><input type="text"></td></tr>
+        <tr><td>Description</td><td><textarea name="desc"></textarea></td></tr>
+        <tr><td>Prix</td><td></td></tr>
+        <tr><td>Quantité</td><td></td></tr>
+        <tr><td><input type="submit"></td></tr>
+        {{ form_end(form) }}
+    </table>
+{% endblock %}

@@ -1,0 +1,16 @@
+shop_homepage:
+    path:     /products
+    defaults: { _controller: shopBundle:Default:index }
+
+shop_ajoutProduit:
+    path:     /ajouterprod
+    defaults: { _controller: shopBundle:Default:addProduit }
+admin_shop_homepage:
+    path:     /adminlist
+    defaults: { _controller: shopBundle:Default:adminProd }
+Delete_prod:
+    path:     /delete/{id}
+    defaults: { _controller: shopBundle:Default:delete }
+Update_prod:
+    path:     /updateProd/{id}
+    defaults: { _controller: shopBundle:Default:update }
