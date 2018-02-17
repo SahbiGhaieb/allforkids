@@ -85,9 +85,7 @@
                                         <option value="3">Hindi</option>
                                     </select>
                                 </li>
-                                <li><i ></i> <a href={{ path('fos_user_security_login') }}  >{% if (is_granted("ROLE_PARENT")) or  (is_granted("ROLE_ETABLISSEMENT")) %}
-                                        Hi {{ app.user.username }}
-                                       {% else %} Login</a><span>or</span><a href={{ path('fos_user_registration_register') }} >Create an account</a></li>{% endif %}
+                                <li><i ></i> <a href={{ path('fos_user_security_login') }}  >Login</a><span>or</span><a href={{ path('fos_user_registration_register') }} >Create an account</a></li>
                                 <li class="cart-dropdown">
                                     <a href="#" class="bg-color-6 shop-cart" >
                                         <i class="fa fa-shopping-basket " aria-hidden="true"></i>
@@ -349,16 +347,10 @@
                             <li class="dropdown singleDrop color-6 ">
                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>Reclamation</span></a>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class=" "><a href="accordion-toggles.html">Accordions &amp; Toggles</a></li>
-                                    <li class=""><a href="tabs-dropdown.html">Tabs &amp; Dropdowns</a></li>
-                                    <li class=" "><a href="alert-label-badges.html">Alert-Label-badges</a></li>
-                                    <li class=" "><a href="progress-bar.html">Progress Bar</a></li>
-                                    <li class=" "><a href="buttons.html">Buttons</a></li>
-                                    <li class=" "><a href="forms.html">Forms</a></li>
-                                    <li class=" "><a href="list-panel.html">Listgroups Panel</a></li>
-                                    <li class=" "><a href="tooltip-pagination.html">Tooltip Pagination</a></li>
-                                    <li class=" "><a href="typography.html">Typography</a></li>
-                                    <li class=" "><a href="responsive-embed.html">Responsive Embed</a></li>
+                                    <li class=" "><a href="{{ path('ListR') }}">Suivi reclamation</a></li>
+
+                                    <li class=" "><a href="{{ path('ajoutR') }}">Pass reclamation</a></li>
+
                                 </ul>
                             </li>
                         </ul>

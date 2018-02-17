@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Allforkids\UserBundle\AllforkidsUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new shopBundle\shopBundle(),
+            new ReclamationBundle\ReclamationBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

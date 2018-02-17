@@ -1,3 +1,7 @@
+reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /reclamation
+
 shop:
     resource: "@shopBundle/Resources/config/routing.yml"
     prefix:   /shop
