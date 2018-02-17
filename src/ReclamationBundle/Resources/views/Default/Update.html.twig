@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+{%block core%}
+
+    <section class="pageTitleSection">
+        <div class="container">
+            <div class="pageTitleInfo">
+                <ol class="breadcrumb">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li class="active">Mes Reclamation</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    <section class="mainContent full-width clearfix">
+        <div class="container">
+            <div class="sectionTitle text-center">
+                <h2>
+                    <span class="shape shape-left bg-color-4"></span>
+                    <span>Modiffier</span>
+                    <span class="shape shape-right bg-color-4"></span>
+                </h2>
+            </div>
+        </div>
+    </section>
+    {{ form_start(form) }}
+
+    {#
+        <table style="width:100%" border="3">
+
+        <tr>
+
+            <td>sujet </td>
+            <td> {{ form_widget(form.sujet) }}</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>{{ form(form_widget(form.description)) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{ form_widget(form.save) }}</td>
+        </tr>
+
+
+
+            </table>
+        #}
+
+    {{ form_end(form) }}
+{% endblock %}

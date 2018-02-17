@@ -1,0 +1,19 @@
+reclamation_homepage:
+    path:     /
+    defaults: { _controller: ReclamationBundle:Default:index }
+ajoutR:
+    path:     /Ajout
+    defaults: { _controller: ReclamationBundle:Reclamation:Ajout }
+ListR:
+    path:     /Affichage
+    defaults: { _controller: ReclamationBundle:Reclamation:show }
+
+DeleteR:
+    path:     /Delete/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:Delete }
+UpdateR:
+    path:     /Update/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:Update }
+RechercheR:
+    path:     /RechercheR
+    defaults: { _controller: ReclamationBundle:Reclamation:Recherch }

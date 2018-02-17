@@ -8,10 +8,10 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AllforkidsUserBundle::layout.html.twig');
+        return $this->render('layout.html.twig');
     }
     public function adminAction()
     {
-        return $this->render('AllforkidsUserBundle::back.html.twig');
+        return $this->render('back.html.twig');
     }
 }
