@@ -1,12 +1,13 @@
 {% extends 'back.html.twig' %}
 {% block core %}
-    <table border="1">
-        {{ form_start(form) }}
-        <tr><td>Nom</td><td><input type="text"></td></tr>
-        <tr><td>Description</td><td><textarea name="desc"></textarea></td></tr>
-        <tr><td>Prix</td><td></td></tr>
-        <tr><td>Quantité</td><td></td></tr>
-        <tr><td><input type="submit"></td></tr>
+    <table border="1" class="table table-inverse">
+        {{ form_start(form, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.nom, { 'attr': {'class': 'form-control', 'placeholder': 'nom'|trans } })  }}
+            {{ form_row(form.description, { 'attr': {'class': 'form-control', 'placeholder': 'description'|trans } })   }}
+            {{ form_row(form.prix, { 'attr': {'class': 'form-control', 'placeholder': 'prix'|trans } })   }}
+            {{ form_row(form.quantiteStock, { 'attr': {'class': 'form-control', 'placeholder': 'quantite'|trans } })   }}
+            {{ form_row(form.image, { 'attr': {'class': 'form-control', 'placeholder': 'image du prodouit'|trans } })   }}
+            {{ form_row(form.submit, { 'attr': {'class': 'btn btn-danger', 'placeholder': 'submit'|trans } })   }}
         {{ form_end(form) }}
     </table>
 {% endblock %}
