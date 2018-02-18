@@ -1,8 +1,13 @@
 {% extends 'back.html.twig' %}
 {% block core %}
     <table border="1">
-        {{ form_start(form) }}
-
+        {{ form_start(form, { 'attr': {'class': 'form-control', 'placeholder': 'nom'|trans } })  }}
+            {{ form_row(form.nom, { 'attr': {'class': 'form-control', 'placeholder': 'nom'|trans } })  }}
+            {{ form_row(form.description, { 'attr': {'class': 'form-control', 'placeholder': 'description'|trans } })   }}
+            {{ form_row(form.prix, { 'attr': {'class': 'form-control', 'placeholder': 'prix'|trans } })   }}
+            {{ form_row(form.quantiteStock, { 'attr': {'class': 'form-control', 'placeholder': 'quantite'|trans } })   }}
+            {{ form_row(form.image, { 'attr': {'class': 'form-control', 'placeholder': 'image du prodouit'|trans } })   }}
+            {{ form_row(form.submit, { 'attr': {'class': 'btn btn-danger', 'placeholder': 'submit'|trans } })   }}
         {{ form_end(form) }}
     </table>
 {% endblock %}
