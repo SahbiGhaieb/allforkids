@@ -3,6 +3,7 @@
 namespace shopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Produit
@@ -37,9 +38,11 @@ class Produit
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\Column(name="image",type="string")
+     * @Assert\NotBlank(message="Please, upload the product image as a PDF jpg.")\
+     * @Assert\Image()
      */
+
     private $image;
 
     /**

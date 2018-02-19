@@ -5,6 +5,7 @@ namespace shopBundle\Controller;
 use shopBundle\Entity\Produit;
 use shopBundle\Form\ProduitType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -27,10 +28,20 @@ class DefaultController extends Controller
         $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
         if ($request->isMethod('POST')) {
+            /**
+             * @var UploadedFile $file
+             */
+            $file=$produit->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+              $this->getParameter('image_directory'),$fileName
+            );
+            $produit->setImage($fileName);
+
             $em=$this->getDoctrine()->getManager();
             $em->persist($produit);
             $em->flush();
-            return $this->redirectToRoute("shop_hompage");
+            return $this->redirectToRoute("shop_homepage");
         }
         return $this->render('shopBundle:Default:ajouterProduit.html.twig',array('form'=>$form->createview()));
     }
