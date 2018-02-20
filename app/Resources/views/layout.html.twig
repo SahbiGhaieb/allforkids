@@ -85,13 +85,14 @@
                                         <option value="3">Hindi</option>
                                     </select>
                                 </li>
-                                <li><i ></i>
+                                <li><b>
                                     {% if is_granted('ROLE_PARENT') %}
-                                        <a href={{ path('fos_user_security_logout') }}>Logout</a>
+                                        Welcome {{ app.user.username }}&nbsp;<a href={{ path('fos_user_security_logout') }}><span class="fa fa-times color-3">Logout</span></a>
                                     {% else %}
                                         <a href={{ path('fos_user_security_login') }}  >Login</a>
                                         <span>or</span><a href={{ path('fos_user_registration_register') }} >Create an account</a>
                                     {% endif %}
+                                    </b>
                                 </li>
 
                             </ul>
@@ -118,15 +119,9 @@
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown singleDrop color-1   active ">
-                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a href={{ path('allforkids_user_homepage') }} >
                                     <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span class="active">Home</span>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-left">
-                                    <li class=" active "><a href="index-2.html">Kidz School</a></li>
-                                    <li class=""><a href="index-v2.html">Kidz Store</a></li>
-                                    <li class=""><a href="index-v3.html">Kidz Daycare</a></li>
-                                    <li class=""><a href="index-v4.html">Kidz Fashion</a></li>
-                                </ul>
                             </li>
                             <li class="dropdown singleDrop color-3 ">
                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-ul bg-color-3" aria-hidden="true"></i> <span>Magazine</span></a>
@@ -269,15 +264,17 @@
                                     </li>
                                 </ul>
                             </li>
+                            {% if is_granted('ROLE_PARENT') or is_granted('ROLE_ETABLISSEMENT') %}
                             <li class="dropdown singleDrop color-6 ">
                                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>Reclamation</span></a>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li class=" "><a href="{{ path('ListR') }}">Suivi reclamation</a></li>
 
                                     <li class=" "><a href="{{ path('ajoutR') }}">Pass reclamation</a></li>
-
+                            {% endif %}
                                 </ul>
                             </li>
+
                         </ul>
                     </div>
 
