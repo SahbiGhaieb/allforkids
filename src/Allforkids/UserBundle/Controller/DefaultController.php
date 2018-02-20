@@ -12,6 +12,10 @@ class DefaultController extends Controller
     }
     public function adminAction()
     {
-        return $this->render('back.html.twig');
+        if ($this->isGranted('ROLE_ADMIN')){
+            return $this->render('back.html.twig');
+        }
+        else return $this->redirectToRoute('allforkids_user_homepage');
+
     }
 }

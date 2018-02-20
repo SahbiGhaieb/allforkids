@@ -69,5 +69,9 @@ class DefaultController extends Controller
         }
         return $this->render("shopBundle:Default:updateProduit.html.twig",array('form'=>$Form->createView()));
     }
-
+    public function viewProdAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository("shopBundle:Produit")->find($id);
+        return $this->render('shopBundle:Default:viewSingle.html.twig',array('produit'=>$produit));
+    }
 }

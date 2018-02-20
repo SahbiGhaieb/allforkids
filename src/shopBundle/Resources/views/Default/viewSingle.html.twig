@@ -1,0 +1,121 @@
+{% extends 'layout.html.twig' %}
+{% block core %}
+    <section class="mainContent full-width clearfix">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-7 col-xs-12">
+                <div class="product-gallery">
+                    <div class="product-gallery-content">
+                        <ul class="product-gallery-preview">
+                            <li id="preview01" class="current">
+                                <img src={{ asset('uploads/images/' ~ produit.image) }} alt="Product" class="img-responsive">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-5 col-xs-12">
+                <div class="product-info">
+                    <h1 class="product-title">{{ produit.nom }}</h1>
+                    <div class="price">
+                        <span>${{ produit.prix }}</span>
+
+                    </div>
+                    <p>{{ produit.description }}
+                    </p>
+
+                    <div class="add-cart">
+                        <div class="count-input">
+                            <input class="quantity btn-primary" type="text" value="1">
+                            <a class="incr-btn incr-up" data-action="decrease" href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+                            <a class="incr-btn incr-down" data-action="increase" href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        </div>
+                        <a href="cart-page.html" class="add-to-cart btn btn-primary">Add to Cart</a>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="product-category">
+                            Category:
+                        </div>
+                    </div>
+                    <div class="share">
+                        <span>Share: </span>
+                        <ul class="list-inline">
+                            <li><a href="#" class="bg-color-1"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="bg-color-2"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="bg-color-3"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="bg-color-4"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="bg-color-5"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- REVIEW SECTION -->
+    <section class="product-review clearfix">
+        <div class="container">
+
+            <div class="tabCommon">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#menu1">Details</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Review(2)</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="menu1" class="tab-pane fade in active">
+                        <div class="media">
+                            <h3>Product Description</h3>
+                            <p>{{ produit.description }}</p>
+
+                        </div>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                        <ul class="media-list commentsList">
+                            <li class="media">
+                                <div class="media-left">
+                                    <img src="img/blog/blog-1.jpg" alt="image" class="img-circle">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Nice design, afordable price</h4>
+                                    <span class="product-rating">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star-half-full" aria-hidden="true"></i>
+                    </span>
+                                    <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                                    <cite>Sarah Smith</cite>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <img src="img/blog/blog-3.jpg" alt="image" class="img-circle">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Nice design, afordable price</h4>
+                                    <span class="product-rating">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </span>
+                                    <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                                    <cite>James Kally</cite>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

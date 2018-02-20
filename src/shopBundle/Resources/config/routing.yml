@@ -14,3 +14,6 @@ Delete_prod:
 Update_prod:
     path:     /updateProd/{id}
     defaults: { _controller: shopBundle:Default:update }
+Affichage_prod_solo:
+    path:     /products/{id}
+    defaults: { _controller: shopBundle:Default:viewProd }
