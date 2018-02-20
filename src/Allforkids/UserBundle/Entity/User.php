@@ -80,15 +80,6 @@ class User extends BaseUser
         return $this->nom;
     }
 
-    /**
-     * @return array
-     */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-
 
     /**
      * Set prenom

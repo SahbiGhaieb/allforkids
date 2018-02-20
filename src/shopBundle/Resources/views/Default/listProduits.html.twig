@@ -11,7 +11,7 @@
                         <a href="single-product.html">
                             <img src={{ asset('uploads/images/' ~ produit.image) }} alt="image" class="img-responsive">
                         </a>
-                        <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
+                        <a data-toggle="modal" href={{ path('Affichage_prod_solo',{'id':produit.id}) }} class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
                     </div>
                     <div class="box-info">
                         <h4>{{produit.nom}}</h4>
