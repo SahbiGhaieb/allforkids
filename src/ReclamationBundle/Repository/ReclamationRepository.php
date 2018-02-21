@@ -10,4 +10,10 @@ namespace ReclamationBundle\Repository;
  */
 class ReclamationRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findarchiv()
+    {
+        $query = $this->getEntityManager()->createQuery("SELECT p FROM ReclamationBundle:Reclamation p WHERE p.date BETWEEN CURRENT_DATE() AND (CURRENT_DATE() -30)  ");
+        return $query->getResult();
+    }
 }

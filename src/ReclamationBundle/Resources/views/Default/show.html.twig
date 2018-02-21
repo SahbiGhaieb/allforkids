@@ -1,0 +1,36 @@
+{% extends 'back.html.twig' %}
+{%block core%}
+    <table class="table table-responsive table-dark" border="1">
+        <tr>
+            <th>Sujet</th>
+            <th>description</th>
+            <th> changer etat</th>
+            <th>etat</th>
+
+        </tr>
+    {% for reclamation in reclamtions %}
+
+            <tr>
+                <td>
+                {{ reclamation.sujet }}
+                </td>
+                <td>
+                {{ reclamation.description }}
+                </td>
+                <td>
+
+                    <a href="{{ path('UpdateEtat', {'name': 'en cours', 'id': reclamation.id}) }}"><input type="button" value="en cours" class="btn btn-warning"></a>
+                    <a href="{{ path('UpdateEtat', {'name': 'traité', 'id': reclamation.id})   }}"><input type="button" value="traité" class="btn btn-success"></a>
+                    <a href="{{ path('UpdateEtat', {'name': 'annuler', 'id': reclamation.id})  }}"><input type="button" value="annuler" class="btn btn-danger" > </a>
+                    <a href="{{ path('detail',{'id':reclamation.id}) }}" class="btn btn-primary">Details</a>
+                </td>
+                <td>
+                {{ reclamation.etat }}
+                </td>
+            </tr>
+
+    {% endfor %}
+    </table>
+    <a href="{{ path('RecherchReclamation') }}"></a>
+    <a href="{{ path('Archive',{'name':' archive'}) }}"><input type="button" value="Consulter archive"></a>
+{% endblock core %}

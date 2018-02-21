@@ -1,0 +1,39 @@
+{% extends 'back.html.twig' %}
+{%block core%}
+    <center>
+    <table style="" bgcolor=#dcdcdc border="5" >
+        <tr>
+            <th>nom</th>
+            <th>date</th>
+            <th>sujet</th>
+            <th>description</th>
+            <th>mail</th>
+        </tr>
+            <tr>
+                <td>
+                   {{ reclamtions.user.nom }}
+                </td>
+
+
+                <td>
+                    {{reclamtions.date|date('d/M/Y')}}
+                </td>
+
+
+                <td>
+                    {{ reclamtions.sujet }}
+                </td>
+
+
+                <td>
+                    {{ reclamtions.description }}
+                </td>
+
+                <td>
+                    {{ reclamtions.user.email }}
+                </td>
+            </tr>
+    </table>
+    </center>
+
+{% endblock core %}

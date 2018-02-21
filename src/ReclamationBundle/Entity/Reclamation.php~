@@ -240,6 +240,29 @@ class Reclamation
     }
 
     /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Reclamation
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+    /**
      * Constructor
      */
     public function __construct()
@@ -271,7 +294,15 @@ class Reclamation
         $this->users->removeElement($user);
     }
 
-
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
 
     /**
      * Set user

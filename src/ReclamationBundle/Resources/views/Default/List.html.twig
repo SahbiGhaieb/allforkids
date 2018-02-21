@@ -82,13 +82,14 @@
                 <div class="container">
                     <center>
                         <div class="row">
-                            <div class="col-xs-12 col-sm-3" style="background-color: yellow">
+                            <div class="col-xs-12 col-sm-3" style="background-color: yellow" >
                                 Titre
                             </div>
 
                             <div class="col-xs-12 col-sm-3"  style="background-color: #b8daff">
                                 Sujet
                             </div>
+                        </div>
                             {% for reclamtion in reclamationEnCours %}
                                 <div class="col-xs-12 col-sm-3 " style="background-color: yellow">
                                     {{ reclamtion.sujet }}
@@ -98,7 +99,7 @@
                                 </div>
 
                             {% endfor %}
-                        </div>
+
                     </center>
                 </div>
             </center>
@@ -119,6 +120,7 @@
                     <div class="col-xs-12 col-sm-3"  style="background-color: #b8daff">
                         Sujet
                     </div>
+                </div>
                     {% for reclamation in reclamationtraiters %}
                         <div class="col-xs-12 col-sm-3 " style="background-color: yellow">
                             {{ reclamation.sujet}}
@@ -127,7 +129,6 @@
                             {{ reclamation.description }}
                         </div>
                     {% endfor %}
-                </div>
             </div>
         </div>
 

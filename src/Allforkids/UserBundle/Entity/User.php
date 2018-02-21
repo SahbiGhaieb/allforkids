@@ -57,6 +57,11 @@ class User extends BaseUser
     protected $prenom;
 
     /**
+     * @ORM\OneToMany(targetEntity="ReclamationBundle\Entity\Reclamation", mappedBy="user")
+     */
+    private $reclamations;
+
+    /**
      * Set nom
      *
      * @param string $nom
@@ -112,5 +117,63 @@ class User extends BaseUser
     public function getPrenom()
     {
         return $this->prenom;
+    }
+
+    /**
+     * Set reclamation
+     *
+     * @param \ReclamationBundle\Entity\Reclamation $reclamation
+     *
+     * @return User
+     */
+    public function setReclamation(\ReclamationBundle\Entity\Reclamation $reclamation = null)
+    {
+        $this->reclamation = $reclamation;
+
+        return $this;
+    }
+
+    /**
+     * Get reclamation
+     *
+     * @return \ReclamationBundle\Entity\Reclamation
+     */
+    public function getReclamation()
+    {
+        return $this->reclamation;
+    }
+
+    /**
+     * Add reclamation
+     *
+     * @param \ReclamationBundle\Entity\Reclamation $reclamation
+     *
+     * @return User
+     */
+    public function addReclamation(\ReclamationBundle\Entity\Reclamation $reclamation)
+    {
+        $this->reclamations[] = $reclamation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reclamation
+     *
+     * @param \ReclamationBundle\Entity\Reclamation $reclamation
+     */
+    public function removeReclamation(\ReclamationBundle\Entity\Reclamation $reclamation)
+    {
+        $this->reclamations->removeElement($reclamation);
+    }
+
+    /**
+     * Get reclamations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReclamations()
+    {
+        return $this->reclamations;
     }
 }

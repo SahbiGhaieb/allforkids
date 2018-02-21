@@ -1,0 +1,47 @@
+{% extends 'back.html.twig' %}
+{% block core %}
+    <center>
+    <h2>Envoyer Motif</h2>
+        <table>
+<tr>
+    <td>
+
+        <label for="email">Adresse de distinateur</label></td>
+<td>
+        <input id="email" name="email" type="text"  size="30" aria-required="true">
+
+
+    </td>
+</tr>
+<tr>
+    <td>
+            <label for="author">Sujet</label>
+    </td>
+    <td>
+            <input id="author" name="author" type="text" value="" size="30" aria-required="true">
+    </td>
+
+
+</tr>
+<tr>
+    <td>
+
+        <label for="comment">Motif</label>
+    </td>
+    <td>
+        <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+
+    </td>
+</tr>
+<tr>
+    <td>
+    </td>
+    <td>
+
+        <input type="submit" value="envoyer motif" id="envoyer motif" name="envoyer motif">
+
+    </td>
+</tr>
+        </table>
+
+{% endblock core %}

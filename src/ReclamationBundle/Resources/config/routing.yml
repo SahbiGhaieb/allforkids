@@ -17,3 +17,21 @@ UpdateR:
 RechercheR:
     path:     /RechercheR
     defaults: { _controller: ReclamationBundle:Reclamation:Recherch }
+ListRadmin:
+    path:     /Affichageadmin
+    defaults: { _controller: ReclamationBundle:Reclamation:showAdmin }
+UpdateEtat:
+    path:     /Update/{id}/{name}
+    defaults: { _controller: ReclamationBundle:Reclamation:Updateetat }
+detail:
+    path:     /details/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:afficheE}
+RecherchReclamation:
+    path:     /Recherche
+    defaults: { _controller: ReclamationBundle:Reclamation:filter}
+Archive:
+    path:     /Archive
+    defaults: { _controller: ReclamationBundle:Reclamation:archiver}
+
+
+
