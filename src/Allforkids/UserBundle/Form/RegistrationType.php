@@ -4,18 +4,22 @@
 namespace Allforkids\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('roles', ChoiceType::class, array(
+        $builder->add('nom')->add('image',FileType::class,array('label'=>'inserer une image'))->add('prenom')->add('roles', ChoiceType::class, array(
             'choices'  => array(
                 'PARENT' => 'ROLE_PARENT',
-                'ENFANT' => 'ROLE_ENFANT',
                 'ETABLISSEMENT' => 'ROLE_ETABLISSEMENT',
-            )));
+            ),
+            'choices_as_values' => true,
+            'multiple'=> true,
+            ));
     }
 
     public function getParent()

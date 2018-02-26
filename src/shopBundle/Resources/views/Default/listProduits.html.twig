@@ -18,7 +18,9 @@
                         <div class="price">
                             <span>{{produit.prix}}</span>
                         </div>
-                        <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
+
+
+                        <a href={{  path('shopping_basket_add',{'id':produit.id }) }} class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,11 @@ class Produit
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    //produit w commandes
+    /**
+     * @ORM\OneToMany(targetEntity="shopBundle\Entity\Commande", mappedBy="produit",cascade={"persist","remove"})
+     */
+    private $commandes;
     /**
      * @var string
      *
@@ -30,9 +34,7 @@ class Produit
     private $description;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="prix", type="integer")
+     * @ORM\Column(type="float", scale=2)
      */
     private $prix;
 
@@ -188,5 +190,46 @@ class Produit
     public function getNom()
     {
         return $this->nom;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commandes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add commande
+     *
+     * @param \shopBundle\Entity\Commande $commande
+     *
+     * @return Produit
+     */
+    public function addCommande(\shopBundle\Entity\Commande $commande)
+    {
+        $this->commandes[] = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Remove commande
+     *
+     * @param \shopBundle\Entity\Commande $commande
+     */
+    public function removeCommande(\shopBundle\Entity\Commande $commande)
+    {
+        $this->commandes->removeElement($commande);
+    }
+
+    /**
+     * Get commandes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommandes()
+    {
+        return $this->commandes;
     }
 }

@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block core %}
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="panel panel-default formPanel">
+            <div class="panel-heading bg-color-1 border-color-1">
+                <h3 class="panel-title">Create  an account</h3>
+            </div>
+            <div class="panel-body">
+                {{ form_start(form) }}
+                    <div class="form-group formField">
+
+                        {{ form_widget(form.adresse, { 'attr': {'class': 'form-control', 'placeholder': 'adresse'} }) }}
+                        {{ form_errors(form.adresse) }}
+                    </div>
+                    <div class="form-group formField">
+                        {{ form_widget(form.num_tel, { 'attr': {'class': 'form-control', 'placeholder': 'numero de telephone' } }) }}
+                        {{ form_errors(form.num_tel) }}
+                    </div>
+                    <div class="form-group formField">
+                        {{ form_widget(form.typeEtablissement, { 'attr': {'class': 'form-control', 'placeholder': 'typeEtablissement' } }) }}
+                        {{ form_errors(form.typeEtablissement) }}
+                    </div>
+                    <div class="form-group formField">
+                        {{ form_widget(form.disponibilite, { 'attr': {'class': 'form-control', 'placeholder': 'disponibilitee' } }) }}
+                        {{ form_errors(form.disponibilite) }}
+                    </div>
+                    <div class="form-group formField">
+                        {{ form_widget(form.description, { 'attr': {'class': 'form-control', 'placeholder': 'description' } }) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+                    <div class="form-group formField">
+                        <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="{{ 'registration.submit'}}">
+                    </div>
+                    <div class="form-group formField">
+                        <p class="help-block">Allready have an account? <a href="#">Log in</a></p>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}

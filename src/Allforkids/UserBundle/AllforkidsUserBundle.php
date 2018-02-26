@@ -9,5 +9,5 @@ class AllforkidsUserBundle extends Bundle
     public function getParent()
     {
         return 'FOSUserBundle';
-}
+    }
 }

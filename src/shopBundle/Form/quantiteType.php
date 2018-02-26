@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProduitType extends AbstractType
+class quantiteType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -16,8 +16,6 @@ class ProduitType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('description')
-            ->add('prix')
-            ->add('image',FileType::class, array('data_class' => null))
             ->add('quantiteStock')->add('nom')
             ->add('submit',SubmitType::class);
     }/**

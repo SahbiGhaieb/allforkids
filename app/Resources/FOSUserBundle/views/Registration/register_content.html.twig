@@ -11,16 +11,11 @@
             <div class="panel-body">
                 <form action="{{ path( 'fos_user_registration_register') }}  " method="POST" role="form">
                     {{ form_row(form._token) }}
+                    {{ form_widget(form2.type, {'attr': {'class': 'form-control' }}) }}
                     <div class="form-group formField">
 
                         {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'username'|trans } }) }}
                         {{ form_errors(form.username) }}
-                    </div>
-                    <div class="form-group formField">
-                        {{ form_widget(form.roles, { 'attr': {'class': 'form-control'|trans } }) }}
-                        {{ form_errors(form.roles) }}
-
-
                     </div>
 
                     <div class="form-group formField">
@@ -48,6 +43,7 @@
                         {{ form_errors(form.plainPassword.second) }}
 
                     </div>
+
                     <div class="form-group formField">
                         <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="{{ 'registration.submit'|trans }}">
                     </div>
