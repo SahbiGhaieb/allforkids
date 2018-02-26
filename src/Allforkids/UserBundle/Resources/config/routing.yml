@@ -4,3 +4,12 @@ allforkids_user_homepage:
 allforkids_admin_homepage:
     path:     /admin
     defaults: { _controller: AllforkidsUserBundle:Default:admin }
+parent_registration:
+    path:     /registerparent
+    defaults: { _controller: AllforkidsUserBundle:Default:parentRegistration }
+etab_registration:
+    path:     /registeretab
+    defaults: { _controller: AllforkidsUserBundle:Default:etablissementRegistration }
+enfants_registration:
+    path:     /registerenfant
+    defaults: { _controller: AllforkidsUserBundle:Default:enfantRegistration }

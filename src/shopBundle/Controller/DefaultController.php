@@ -41,7 +41,7 @@ class DefaultController extends Controller
             $em=$this->getDoctrine()->getManager();
             $em->persist($produit);
             $em->flush();
-            return $this->redirectToRoute("shop_homepage");
+            return $this->redirectToRoute("admin_shop_homepage");
         }
         return $this->render('shopBundle:Default:ajouterProduit.html.twig',array('form'=>$form->createview()));
     }
@@ -52,7 +52,7 @@ class DefaultController extends Controller
         $produit = $em->getRepository("shopBundle:Produit")->find($id);
         $em->remove($produit);
         $em->flush();
-        return $this->redirectToRoute('shop_homepage');
+        return $this->redirectToRoute('admin_shop_homepage');
     }
 
     public function updateAction (Request $request,$id)
@@ -61,17 +61,28 @@ class DefaultController extends Controller
         $produit=$em->getRepository("shopBundle:Produit")->find($id);
         $Form = $this->createForm(ProduitType::class,$produit);
         $Form->handleRequest($request);
-        if ($Form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        if ($request->isMethod('POST')) {
+            /**
+             * @var UploadedFile $file
+             */
+            $file=$produit->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),$fileName
+            );
+            $produit->setImage($fileName);
+
+            $em=$this->getDoctrine()->getManager();
             $em->persist($produit);
             $em->flush();
-            return $this->redirectToRoute('shop_homepage');
+            return $this->redirectToRoute("admin_shop_homepage");
         }
         return $this->render("shopBundle:Default:updateProduit.html.twig",array('form'=>$Form->createView()));
     }
     public function viewProdAction($id){
         $em = $this->getDoctrine()->getManager();
         $produit = $em->getRepository("shopBundle:Produit")->find($id);
+
         return $this->render('shopBundle:Default:viewSingle.html.twig',array('produit'=>$produit));
     }
 }

@@ -6,7 +6,7 @@ shop_ajoutProduit:
     path:     /ajouterprod
     defaults: { _controller: shopBundle:Default:addProduit }
 admin_shop_homepage:
-    path:     /adminlist
+    path:     /adminlistproduit
     defaults: { _controller: shopBundle:Default:adminProd }
 Delete_prod:
     path:     /delete/{id}
@@ -17,3 +17,12 @@ Update_prod:
 Affichage_prod_solo:
     path:     /products/{id}
     defaults: { _controller: shopBundle:Default:viewProd }
+shop_cart:
+    path:     /shoppingcart
+    defaults: { _controller: shopBundle:ShoppingCart:index }
+shopping_basket_add:
+    path:     /addcart/{id}
+    defaults: { _controller: shopBundle:ShoppingCart:addToBasket}
+shopping_basket_delete:
+    path:     /suppcmd/{id}
+    defaults: { _controller: shopBundle:ShoppingCart:suppCmd}

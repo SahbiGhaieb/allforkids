@@ -1,0 +1,105 @@
+<?php
+
+namespace Allforkids\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Guardian
+ *
+ * @ORM\Table(name="Guardian")
+ * @ORM\Entity(repositoryClass="AllforkidsUserBundle\Repository\GuardianRepository")
+ */
+
+class Guardian
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    //one to many m3a commandes
+    /**
+     * @ORM\OneToMany(targetEntity="shopBundle\Entity\Commande", mappedBy="guardian",cascade={"persist","remove"})
+     */
+    private $commandes;
+    /**
+     * @ORM\OneToMany(targetEntity="Allforkids\UserBundle\Entity\Enfant", mappedBy="guardian",cascade={"persist","remove"})
+     */
+    private $enfants;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numTel", type="string", length=8)
+     */
+    private $numTel;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Guardian
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set numTel
+     *
+     * @param string $numTel
+     *
+     * @return Guardian
+     */
+    public function setNumTel($numTel)
+    {
+        $this->numTel = $numTel;
+
+        return $this;
+    }
+
+    /**
+     * Get numTel
+     *
+     * @return string
+     */
+    public function getNumTel()
+    {
+        return $this->numTel;
+    }
+}

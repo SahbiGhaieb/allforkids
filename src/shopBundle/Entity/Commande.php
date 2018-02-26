@@ -1,0 +1,158 @@
+<?php
+
+namespace shopBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commande
+ *
+ * @ORM\Table(name="commande")
+ * @ORM\Entity(repositoryClass="shopBundle\Repository\CommandeRepository")
+ */
+class Commande
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    //relation user commande
+    /**
+     * @ORM\ManyToOne(targetEntity="Allforkids\UserBundle\Entity\Guardian", inversedBy="commandes")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $guardian;
+
+    //relation commande produits
+    /**
+     * @ORM\ManyToOne(targetEntity="shopBundle\Entity\Produit", inversedBy="commandes")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $produit;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="quantite", type="integer")
+     */
+    private $quantite;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="valide", type="boolean")
+     */
+    private $valide;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     *
+     * @return Commande
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return int
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    /**
+     * Set valide
+     *
+     * @param boolean $valide
+     *
+     * @return Commande
+     */
+    public function setValide($valide)
+    {
+        $this->valide = $valide;
+
+        return $this;
+    }
+
+    /**
+     * Get valide
+     *
+     * @return bool
+     */
+    public function getValide()
+    {
+        return $this->valide;
+    }
+
+    /**
+     * Set guardian
+     *
+     * @param \Allforkids\UserBundle\Entity\Guardian $guardian
+     *
+     * @return Commande
+     */
+    public function setGuardian(\Allforkids\UserBundle\Entity\Guardian $guardian = null)
+    {
+        $this->guardian = $guardian;
+
+        return $this;
+    }
+
+    /**
+     * Get guardian
+     *
+     * @return \Allforkids\UserBundle\Entity\Guardian
+     */
+    public function getGuardian()
+    {
+        return $this->guardian;
+    }
+
+    /**
+     * Set produit
+     *
+     * @param \shopBundle\Entity\shopBundle/Entity/produit $produit
+     *
+     * @return Commande
+     */
+    public function setProduit(\shopBundle\Entity\produit $produit = null)
+    {
+        $this->produit = $produit;
+
+        return $this;
+    }
+
+    /**
+     * Get produit
+     *
+     * @return \shopBundle\Entity\shopBundle/Entity/produit
+     */
+    public function getProduit()
+    {
+        return $this->produit;
+    }
+}

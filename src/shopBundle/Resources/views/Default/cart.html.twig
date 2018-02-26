@@ -1,0 +1,55 @@
+{% extends 'layout.html.twig' %}
+{% block core %}
+    <section class="mainContent full-width clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+
+                        <div class="cartInfo">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr class="bg-color-1">
+                                        <th class="col-lg-2 col-xs-3" style="min-width: 190px; text-indent:-999px;">
+                                            empty</th>
+                                        <th class="col-lg-4 col-xs-3">Product Name</th>
+                                        <th class="col-lg-2 col-xs-2">Price</th>
+                                        <th class="col-lg-2 col-xs-2">Quantity</th>
+                                        <th class="col-lg-2 col-xs-2">Total</th>
+                                    </tr>
+                                    </thead>
+                                    {% for item in commandes %}
+                                        <form method="post">
+                                    <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <a href={{ path('shopping_basket_delete',{'id':item.id} ) }} ><i class="fa fa-times" ></i> </a>
+                                            <span class="cartImage"><img src={{ asset('uploads/images/'~ item.produit.image  ) }} alt="image" height="100px" width="100px" class="img-rounded"></span>
+                                        </td>
+                                        <td>{{ item.produit.nom}}</td>
+                                        <td>$ {{ item.produit.prix}}</td>
+
+                                        <td><input type="text" placeholder="{{ item.quantite}}" name="quantite"><input type="hidden" value="{{ item.id}}" name="id"></td>
+                                        <td>$ {{ item.quantite * item.produit.prix }} </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td colspan="4">
+
+                                        </td>
+                                        <td><input type="submit" class="btn btn-primary pull-right" value="update cart"></td>
+                                    </tr>
+                                    </tbody>
+                                    </form>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+
+        </div>
+{% endblock %}
