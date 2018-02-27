@@ -27,6 +27,10 @@ class Produit
      */
     private $commandes;
     /**
+     * @ORM\OneToMany(targetEntity="shopBundle\Entity\Wishlist", mappedBy="produit",cascade={"persist","remove"})
+     */
+    private $wishlistsProd;
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)

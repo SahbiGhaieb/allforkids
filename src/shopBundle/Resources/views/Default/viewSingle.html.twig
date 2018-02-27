@@ -27,12 +27,8 @@
                     </p>
 
                     <div class="add-cart">
-                        <div class="count-input">
-                            <input class="quantity btn-primary" type="text" value="1">
-                            <a class="incr-btn incr-up" data-action="decrease" href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
-                            <a class="incr-btn incr-down" data-action="increase" href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                        </div>
-                        <a href="cart-page.html" class="add-to-cart btn btn-primary">Add to Cart</a>
+
+                        <a href={{  path('shopping_basket_add',{'id':produit.id }) }}class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
                     </div>
 
                     <div class="product-meta">
@@ -63,7 +59,7 @@
             <div class="tabCommon">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#menu1">Details</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Review(2)</a></li>
+
                 </ul>
 
                 <div class="tab-content">
@@ -74,44 +70,7 @@
 
                         </div>
                     </div>
-                    <div id="menu2" class="tab-pane fade">
-                        <ul class="media-list commentsList">
-                            <li class="media">
-                                <div class="media-left">
-                                    <img src="img/blog/blog-1.jpg" alt="image" class="img-circle">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Nice design, afordable price</h4>
-                                    <span class="product-rating">
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star-half-full" aria-hidden="true"></i>
-                    </span>
-                                    <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                                    <cite>Sarah Smith</cite>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <img src="img/blog/blog-3.jpg" alt="image" class="img-circle">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Nice design, afordable price</h4>
-                                    <span class="product-rating">
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </span>
-                                    <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                                    <cite>James Kally</cite>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
 

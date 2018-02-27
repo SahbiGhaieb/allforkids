@@ -5,9 +5,13 @@ reclamation:
 shop:
     resource: "@shopBundle/Resources/config/routing.yml"
     prefix:   /shop
+admin_shop:
+    resource: "@shopBundle/Resources/config/routing1.yml"
+    prefix:   /admin/shop
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
 allforkids_user:
     resource: "@AllforkidsUserBundle/Resources/config/routing.yml"
     prefix:   /

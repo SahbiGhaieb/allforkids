@@ -19,8 +19,12 @@
                             <span>{{produit.prix}}</span>
                         </div>
 
-
-                        <a href={{  path('shopping_basket_add',{'id':produit.id }) }} class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
+                        {% if is_granted('ROLE_PARENT')%}
+                            <a href={{  path('shopping_basket_add',{'id':produit.id }) }} class="btn-primary"><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
+                        {% endif %}
+                        {% if is_granted('ROLE_ENFANT') %}
+                            <a href={{  path('add_wishlist',{'id':produit.id }) }} class="btn-primary"><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

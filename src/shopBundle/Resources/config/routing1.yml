@@ -1,0 +1,16 @@
+
+shop_ajoutProduit:
+    path:     /ajouterprod
+    defaults: { _controller: shopBundle:Admin:addProduit }
+statstique:
+    path:     /stat
+    defaults: { _controller: shopBundle:Admin:statstique }
+admin_shop_homepage:
+    path:     /adminlistproduit
+    defaults: { _controller: shopBundle:Admin:adminProd }
+Delete_prod:
+    path:     /delete/{id}
+    defaults: { _controller: shopBundle:Admin:delete }
+Update_prod:
+    path:     /updateProd/{id}
+    defaults: { _controller: shopBundle:Admin:update }

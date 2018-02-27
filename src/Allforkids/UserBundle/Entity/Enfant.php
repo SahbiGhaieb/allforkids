@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Enfant
  *
  * @ORM\Table(name="Enfant")
- * @ORM\Entity(repositoryClass="AllforkidsUserBundle\Repository\EnfantRepository")
+ * @ORM\Entity(repositoryClass="Allforkids/UserBundle\Repository\EnfantRepository")
  */
 class Enfant
 {
@@ -24,6 +24,11 @@ class Enfant
      * @ORM\JoinColumn(nullable=true)
      */
     private $guardian;
+
+    /**
+     * @ORM\OneToMany(targetEntity="shopBundle\Entity\Wishlist", mappedBy="enfant",cascade={"persist","remove"})
+     */
+    private $wishlists;
 
     /**
      * Get id
@@ -57,5 +62,46 @@ class Enfant
     public function getGuardian()
     {
         return $this->guardian;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->wishlists = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add wishlist
+     *
+     * @param \shopBundle\Entity\Wishlist $wishlist
+     *
+     * @return Enfant
+     */
+    public function addWishlist(\shopBundle\Entity\Wishlist $wishlist)
+    {
+        $this->wishlists[] = $wishlist;
+
+        return $this;
+    }
+
+    /**
+     * Remove wishlist
+     *
+     * @param \shopBundle\Entity\Wishlist $wishlist
+     */
+    public function removeWishlist(\shopBundle\Entity\Wishlist $wishlist)
+    {
+        $this->wishlists->removeElement($wishlist);
+    }
+
+    /**
+     * Get wishlists
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWishlists()
+    {
+        return $this->wishlists;
     }
 }

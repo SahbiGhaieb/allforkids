@@ -1,28 +1,24 @@
 shop_homepage:
     path:     /products
     defaults: { _controller: shopBundle:Default:index }
-
-shop_ajoutProduit:
-    path:     /ajouterprod
-    defaults: { _controller: shopBundle:Default:addProduit }
-admin_shop_homepage:
-    path:     /adminlistproduit
-    defaults: { _controller: shopBundle:Default:adminProd }
-Delete_prod:
-    path:     /delete/{id}
-    defaults: { _controller: shopBundle:Default:delete }
-Update_prod:
-    path:     /updateProd/{id}
-    defaults: { _controller: shopBundle:Default:update }
 Affichage_prod_solo:
     path:     /products/{id}
     defaults: { _controller: shopBundle:Default:viewProd }
 shop_cart:
     path:     /shoppingcart
     defaults: { _controller: shopBundle:ShoppingCart:index }
+add_wishlist:
+    path:     /wishlist/{id}
+    defaults: { _controller: shopBundle:ShoppingCart:addwishlist }
 shopping_basket_add:
     path:     /addcart/{id}
     defaults: { _controller: shopBundle:ShoppingCart:addToBasket}
 shopping_basket_delete:
     path:     /suppcmd/{id}
     defaults: { _controller: shopBundle:ShoppingCart:suppCmd}
+show_wishlist:
+    path:     /wishlist
+    defaults: { _controller: shopBundle:ShoppingCart:wishlist }
+show_wishlist_parent:
+    path:     /wishlistparent
+    defaults: { _controller: shopBundle:Default:wishlistParent }

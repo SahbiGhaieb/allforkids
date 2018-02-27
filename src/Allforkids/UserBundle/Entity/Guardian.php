@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Guardian
  *
  * @ORM\Table(name="Guardian")
- * @ORM\Entity(repositoryClass="AllforkidsUserBundle\Repository\GuardianRepository")
+ * @ORM\Entity(repositoryClass="Allforkids/UserBundle\Repository\GuardianRepository")
  */
 
 class Guardian

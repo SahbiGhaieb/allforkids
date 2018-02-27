@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use shopBundle\Entity\Cart;
 use shopBundle\Entity\Commande;
 use shopBundle\Entity\Produit;
+use shopBundle\Entity\Wishlist;
 use shopBundle\Form\ProduitType;
 use shopBundle\Form\quantiteType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,8 +22,9 @@ class ShoppingCartController extends Controller
         if($this->isGranted('ROLE_PARENT')){
             $em = $this->getDoctrine()->getManager();
             $commandes =  $em->getRepository('shopBundle:Commande')->findBy(array('guardian'=>$this->getUser()->getId()));
-            if ($request->isMethod('POST')) {
 
+            //update Commande quantité
+            if ($request->isMethod('POST')) {
                 $commande  = $em->getRepository('shopBundle:Commande')->find($request->get('id'));
                 $commande-> setQuantite($request->get('quantite'));
                 $em->persist($commande);
@@ -32,6 +34,41 @@ class ShoppingCartController extends Controller
             return $this->render('shopBundle:Default:cart.html.twig',array('commandes' => $commandes));
         }
         return $this->redirect($this->generateUrl('fos_user_security_login'));
+    }
+    public function wishlistAction()
+    {
+        if($this->isGranted('ROLE_ENFANT')){
+            $em = $this->getDoctrine()->getManager();
+            $wishlists =  $em->getRepository('shopBundle:Wishlist')->findBy(array('enfant'=>$this->getUser()->getEnfant()->getId()));
+
+            return $this->render('shopBundle:Default:wishlist.html.twig',array('wishlists' => $wishlists));
+        }
+        return $this->redirect($this->generateUrl('fos_user_security_login'));
+    }
+
+    public function addWishlistAction($id)
+    {
+        if($this->isGranted('ROLE_ENFANT')){
+            $em = $this->getDoctrine()->getManager();
+            $produit = $em->getRepository("shopBundle:Produit")->find($id);
+            $wishlist= $em->getRepository("shopBundle:Wishlist")
+                ->findOneBy(array('enfant'=>$this->getUser()->getId(),'produit'=>$produit->getId()));
+
+            if($wishlist){
+                $em->persist($wishlist);
+                $em->flush();
+                return $this->redirect($this->generateUrl('shop_homepage'));
+            }
+            $wishlist = new Wishlist();
+            $wishlist->setProduit($produit);
+
+            $wishlist->setEnfant($this->getUser()->getEnfant());
+            $em->persist($wishlist);
+            $em->flush();
+
+
+            return $this->redirect($this->generateUrl('shop_homepage'));
+        }
     }
 
     public function addToBasketAction($id)

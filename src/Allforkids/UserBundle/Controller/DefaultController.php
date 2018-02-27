@@ -20,6 +20,7 @@ class DefaultController extends Controller
     }
     public function adminAction()
     {
+
         if ($this->isGranted('ROLE_ADMIN')){
             return $this->render('back.html.twig');
         }
@@ -79,7 +80,7 @@ class DefaultController extends Controller
                 $user->setPrenom($form->get('prenom')->getData());
                 $user->setUsername($form->get('username')->getData());
                 $user->setPassword($form->get('password')->getData());
-
+                $user->setEnabled(1);
                 $enfant = new Enfant();
                 $em->persist($enfant);
                 $em->flush();

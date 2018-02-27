@@ -86,7 +86,7 @@
                                     </select>
                                 </li>
                                 <li><b>
-                                    {% if is_granted('ROLE_PARENT') %}
+                                    {% if is_granted('ROLE_PARENT') or is_granted('ROLE_ENFANT') or is_granted('ROLE_ETABLISSEMENT') %}
                                         Welcome {{ app.user.username }}&nbsp;<a href={{ path('fos_user_security_logout') }}><span class="fa fa-times color-3">Logout</span></a>
                                     {% else %}
                                         <a href={{ path('fos_user_security_login') }}  >Login</a>
@@ -215,8 +215,17 @@
                                         <a href={{ path('shop_homepage') }}>Products
                                         </a>
                                     </li>
-                                    <li class=""><a href="single-product.html">Wishlist</a></li>
-                                    <li class=""><a href={{ path('shop_cart') }}>Cart</a></li>
+                                    {% if is_granted('ROLE_ENFANT') %}
+                                        <li class=""><a href={{ path('show_wishlist') }} >Wishlist</a></li>
+                                    {% elseif is_granted('ROLE_PARENT') %}
+                                        <li class=""><a href={{ path('show_wishlist_parent') }} >Wishlist</a></li>
+
+                                    {% endif %}
+                                    {% if is_granted('ROLE_PARENT') or is_granted('ROLE_ADMIN') or is_granted('ROLE_ETABLISSEMENT')   %}
+                                        <li class=""><a href={{ path('shop_cart') }}>Cart</a></li>
+                                    {% endif %}
+
+
                                 </ul>
                             </li>
                             <li class="dropdown singleDrop color-5  ">
