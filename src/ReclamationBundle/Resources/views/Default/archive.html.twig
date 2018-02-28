@@ -1,31 +1,31 @@
 {% extends 'back.html.twig' %}
-{%block core%}
-    <table class="table table-responsive table-dark" border="1">
-        <tr>
-            <th>Sujet</th>
-            <th>description</th>
-            <th>etat</th>
-            <th>date</th>
-
-        </tr>
-        {% for reclamation in reclamtions %}
-
-            <tr>
-                <td>
-                    {{ reclamtion.sujet }}
-                </td>
-                <td>
-                    {{ reclamtion.description }}
-                </td>
-
-                <td>
-                    {{ reclamtion.etat }}
-                </td>
-                <td>
-                    {{ reclamtion.date }}
-                </td>
-            </tr>
-
-        {% endfor %}
-    </table>
-{% endblock core %}
+{%  block core %}
+    <br><br>
+    <br><br>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="table-responsive">
+                <table class="table table-curved">
+                    <thead>
+                    <tr>
+                        <th class="col-sm-2 bg-color-1">Sujet <i class="fa fa-arrow-down" aria-hidden="true"></i></th>
+                        <th class="col-sm-2 bg-color-2"> Description </th>
+                        <th class="col-sm-2 bg-color-2"> Mail </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for r in reclamations %}
+                        <tr>
+                            <td> {{ r.sujet }}</td>
+                            <td>
+                               {{ r.description }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><br>
+{% endblock %}

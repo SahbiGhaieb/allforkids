@@ -28,10 +28,47 @@ detail:
     defaults: { _controller: ReclamationBundle:Reclamation:afficheE}
 RecherchReclamation:
     path:     /Recherche
-    defaults: { _controller: ReclamationBundle:Reclamation:filter}
+    defaults: { _controller: ReclamationBundle:Reclamation:recherche}
 Archive:
     path:     /Archive
     defaults: { _controller: ReclamationBundle:Reclamation:archiver}
 
+ajoutmsg:
+    path:     /AjoutMsg
+    defaults: { _controller: ReclamationBundle:Reclamation:AjoutMessage }
+ListMesg:
+    path:     /ListMsg
+    defaults: { _controller: ReclamationBundle:Reclamation:showMessage }
+Deletemsg:
+    path:     /DeleteMsg/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:Deletemsg }
 
+_ajax:
+        path: /recherche/search
+        defaults: { _controller: ReclamationBundle:Reclamation:rechercheAjax}
+ajoutC:
+    path:     /AjoutC
+    defaults: { _controller: ReclamationBundle:Reclamation:AjoutCours }
 
+Listc:
+    path:     /Affichagec
+    defaults: { _controller: ReclamationBundle:Reclamation:affichecours }
+Listcd:
+    path:     /Affichagecdetails/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:Affichagecdetails }
+AffichageMsg:
+    path:     /Affichagemessage
+    defaults: { _controller: ReclamationBundle:Reclamation:affichemessage }
+
+print:
+    path:     /printpdf/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:toPdf }
+rech:
+    path:     /search
+    defaults: { _controller: ReclamationBundle:Reclamation:serch}
+multi:
+      path:     /multiserch
+      defaults: { _controller: ReclamationBundle:Reclamation:multisearch}
+annuler:
+      path:     /Annuler
+      defaults: { _controller: ReclamationBundle:Reclamation:annuler}

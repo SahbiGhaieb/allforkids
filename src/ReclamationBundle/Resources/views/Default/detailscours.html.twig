@@ -1,0 +1,94 @@
+{% extends 'layout.html.twig' %}
+{%block core%}
+
+        <div class="row">
+            <div class="col-md-9 col-sm-8 col-xs-12 block pull-right">
+
+                    <div class="thumbnail thumbnailContent alt">
+                         <img src="{{ asset ('uploads/images/course-single-title.jpg') }}" alt="image" class="img-responsive">
+                         <h3 class="color-1">{{ cour.titre }}</h3>
+                        <p>{{ cour.text }}</p>
+                        <div class="table-responsive">
+                        </div>
+                    </div>
+                </div>
+                <div class="btnArea">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-12 pull-left">
+                <aside>
+                    <div class="rightSidebar">
+                        <div class="panel panel-default">
+                            <div class="panel-heading bg-color-1 border-color-1">
+                                <h3 class="panel-title">Course Information</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <div class="media-left iconContent bg-color-2">
+                                        </div>
+                                        <div class="media-body iconContent">
+
+                                        <div class="media-body iconContent">
+                                            <h4 class="media-heading color-3">Years Old</h4>
+                                            <p>{{ cour.cible }}</p>
+                                        </div>
+                                        </div>
+                                    </li>
+                                    <li class="media iconContet">
+                                        <div class="media-left iconContent bg-color-4">
+                                            <i class="fa fa-anchor" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="media-body iconContent">
+                                            <h4 class="media-heading color-4">Niveaux</h4>
+                                            <p>{{ cour.niveaux}}</p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left iconContent bg-color-5">
+                                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="media-body iconContent">
+                                            <h4 class="media-heading color-5">temps</h4>
+                                            <p>{{ cour.temps }}</p>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="btnPart">
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading bg-color-5 border-color-5">
+                            </div>
+                                        <div class="media-body">
+
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img src="img/course-single/related-course-03.jpg" alt="image" class="img-rounded"></a>
+                                        </div>
+                                        <div class="media-body">
+                                            </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <a href="#"><img src="img/course-single/related-course-04.jpg" alt="image" class="img-rounded"></a>
+                                        </div>
+                                        <div class="media-body">
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                </aside>
+            </div>
+        </div>
+
+        </div>
+    </div>
+{% endblock %}

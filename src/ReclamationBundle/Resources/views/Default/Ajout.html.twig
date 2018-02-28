@@ -18,13 +18,22 @@
                 </h2>
             </div>
 
-            <h4 class="text-center">Rédiger une réclamation</h4>
+            <h3 class="text-center" style="color: yellow">Rédiger une réclamation</h3>
 
             <div class="row">
                 <div class="col-xs-12">
                     <div class="homeContactContent">
 
                         <form method="POST" >
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <input type="number" class="form-control border-color-5" id="exampleInputEmail3" placeholder="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                    <input type="text" class="form-control border-color-6" id="exampleInputEmail4" placeholder="short description" required name="short">
+                                </div>
 
                                 <div class="col-xs-12">
                                     <div class="form-group">
@@ -45,6 +54,7 @@
                                         <textarea class="form-control border-color-4" placeholder="Write message" name="desc" required></textarea>
                                     </div>
                                 </div>
+
                                 <div class="col-xs-12">
                                     <div class="formBtnArea">
                                         <button type="submit" class="btn btn-primary" >Send</button>

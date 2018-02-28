@@ -64,6 +64,51 @@ class Reclamation
     private $phone;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="short_descr", type="string", length=30)
+     */
+    private $short_descr;
+
+    /**
+     * @return string
+     */
+    public function getShortDescr()
+    {
+        return $this->short_descr;
+    }
+    /**
+     * @ORM\OneToMany(targetEntity="message", mappedBy="reclamation")
+     */
+    private $message;
+
+    /**
+     * @return mixed
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * @param mixed $message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+
+
+    /**
+     * @param string $short_descr
+     */
+    public function setShortDescr($short_descr)
+    {
+        $this->short_descr = $short_descr;
+    }
+
+    /**
      * @ORM\ManyToOne(targetEntity="Allforkids\UserBundle\Entity\User", inversedBy="reclamations")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */

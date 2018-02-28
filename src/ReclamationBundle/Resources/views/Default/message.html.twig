@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+{%  block core %}
+    <br><br>
+    <br><br>
+    <div class="row">
+         <div class="col-md-6 col-md-offset-3">
+              <div class="table-responsive">
+                   <table class="table table-curved">
+                        <thead>
+                        <tr>
+                             <th class="col-sm-2 bg-color-1">Message <i class="fa fa-arrow-down" aria-hidden="true"></i></th>
+                             <th class="col-sm-2 bg-color-2"> Reclamation </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+    {% for message in messages %}
+                        <tr>
+                             <td> {{ message.message }}</td>
+                             <td>
+                                 {{ message.reclamation.sujet}}
+                             </td>
+                        </tr>
+    {% endfor %}
+                        </tbody>
+                   </table>
+              </div>
+         </div>
+    </div>
+    <br><br>
+{% endblock %}

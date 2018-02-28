@@ -1,0 +1,26 @@
+{% for e in events %}
+
+<table>
+
+    <tr>
+        <td>
+            {{ e.sujet}}
+        </td>
+        <td>
+            {{ e.description }}
+        </td>
+        <td>
+
+            <a href="{{ path('UpdateEtat', {'name': 'en cours', 'id': e.id}) }}"><input type="button" value="en cours" class="btn btn-warning"></a>
+            <a href="{{ path('UpdateEtat', {'name': 'traité', 'id': e.id})   }}"><input type="button" value="traité" class="btn btn-success"></a>
+            <a href="{{ path('UpdateEtat', {'name': 'annuler', 'id': e.id})  }}"><input type="button" value="annuler" class="btn btn-danger" > </a>
+            <a href="{{ path('detail',{'id':e.id}) }}" class="btn btn-primary">Details</a>
+        </td>
+        <td>
+            {{ e.etat }}
+        </td>
+    </tr>
+
+</table>
+
+{% endfor %}

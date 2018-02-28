@@ -10,4 +10,5 @@ namespace ReclamationBundle\Repository;
  */
 class archiveRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

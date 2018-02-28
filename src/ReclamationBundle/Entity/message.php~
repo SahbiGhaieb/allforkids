@@ -20,28 +20,29 @@ class message
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @ORM\ManyToOne(targetEntity="Allforkids\UserBundle\Entity\User", inversedBy="message")
-     */
-    private $user;
 
     /**
-     * @return mixed
+     * @var string
+     *
+     * @ORM\Column(name="sujet", type="string", length=255)
      */
-    public function getUser()
+    private $sujet;
+
+    /**
+     * @return string
+     */
+    public function getMail()
     {
-        return $this->user;
+        return $this->mail;
     }
 
     /**
-     * @param mixed $user
+     * @param string $mail
      */
-    public function setUser($user)
+    public function setMail($mail)
     {
-        $this->user = $user;
+        $this->mail = $mail;
     }
-
-
 
     /**
      * @return string
@@ -58,39 +59,67 @@ class message
     {
         $this->message = $message;
     }
-
     /**
-     * @ORM\ManyToOne(targetEntity="ReclamationBundle\Entity\Reclamation", inversedBy="message")
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=255)
+     */
+    private $mail;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="objet", type="string", length=255)
+     */
+    private $objet;
+    /**
+     * @return string
+     */
+    /**
      */
     private $reclamation;
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getReclamation()
+    public function getObjet()
     {
-        return $this->reclamation;
+        return $this->objet;
     }
 
     /**
-     * @param mixed $reclamation
+     * @param string $objet
      */
-    public function setReclamation($reclamation)
+    public function setObjet($objet)
     {
-        $this->reclamation = $reclamation;
+        $this->objet = $objet;
+    }
+    /**
+     * @return string
+     */
+    public function getLu()
+    {
+        return $this->lu;
     }
 
-
-
-
-
-
+    /**
+     * @param string $lu
+     */
+    public function setLu($lu)
+    {
+        $this->lu = $lu;
+    }
     /**
      * @var boolean
      *
-     * @ORM\Column(name="message", type="string")
+     * @ORM\Column(name="lu", type="boolean",options={"default":0})
      */
-    private $message;
+    private $lu;
 
 
 

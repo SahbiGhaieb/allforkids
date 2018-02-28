@@ -13,7 +13,18 @@ class ReclamationRepository extends \Doctrine\ORM\EntityRepository
 
     public function findarchiv()
     {
-        $query = $this->getEntityManager()->createQuery("SELECT p FROM ReclamationBundle:Reclamation p WHERE p.date BETWEEN CURRENT_DATE() AND (CURRENT_DATE() -30)  ");
-        return $query->getResult();
+        $query = $this->getEntityManager()->createQuery("SELECT * FROM `reclamation` WHERE CURRENT_DATE-date> 30 AND etat='traité'");
+        var_dump($query->getResult());
+        return $query->getMaxResults();
+    }
+
+    public function findAjax($search)
+    {
+
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.sujet LIKE :sujet')
+            ->setParameter('sujet','%' .$search . '%')
+            ->getQuery()
+            ->getResult();
     }
 }

@@ -1,0 +1,46 @@
+{% extends 'back.html.twig' %}
+{% block core %}
+{{ form_start(form) }}
+<center>    <h3>Ajouter Cours-1</h3> </center>
+
+    <table class="table table-curved">
+        <tr><td>categorie</td>
+        <td>{{ form_widget(form.categorie) }}</td></tr>
+        <tr><td>Age cible</td>
+            <td>{{ form_widget(form.cible) }}</td></tr>
+        <tr><td>niveaux</td>
+        <td>{{ form_widget(form.niveaux) }}</td></tr>
+        <tr><td>temps</td>
+            <td>{{ form_widget(form.temps) }}</td></tr>
+        <tr><td>titre</td>
+        <td>
+            {{ form_widget(form.titre) }}
+        </td></tr>
+
+        <tr><td>description</td>
+            <td>
+                {{ form_widget(form.description) }}
+            </td>
+        </tr>
+        <tr><td>test</td>
+            <td>
+                {{ form_widget(form.text) }}
+            </td>
+        </tr>
+
+            <tr><td>Image</td>
+                <td>{{ form_widget(form.image) }}
+        </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{ form_widget(form.Ajouter) }}
+            </td>
+        </tr>
+
+
+
+
+    </table>
+    {{ form_end(form) }}
+{% endblock core %}

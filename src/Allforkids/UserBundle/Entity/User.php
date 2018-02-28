@@ -42,6 +42,22 @@ class User extends BaseUser
      * )
      */
     protected $nom;
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
     /**
  * @ORM\Column(type="string", length=255)
  *
@@ -54,6 +70,9 @@ class User extends BaseUser
  *     groups={"Registration", "Profile"}
  * )
  */
+
+
+
     protected $prenom;
 
     /**

@@ -1,0 +1,22 @@
+{% extends 'back.html.twig' %}
+{% block core %}
+    <!-- Alert Messages -->
+<table  class=table table-striped style="" bgcolor=#dcdcdc >
+    {% for messages in messages  %}
+
+
+                  <tr>
+<td>
+    {{ messages.description}}
+</td>
+
+
+    <td>
+                    <a href= "{{ path('Deletemsg',{'id':messages.id})  }}">supprimer</a>
+    </td>
+</tr>
+{% endfor %}
+
+
+</table>
+{%  endblock %}
